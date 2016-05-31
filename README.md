@@ -1,18 +1,36 @@
-# Slim Framework 3 Skeleton Application
+XSS Tour
+====
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+Learning some pattern of cross site scripting.
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+### Description
 
-## Install the Application
+### Demo
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+### Requirement
 
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
+### Usage
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+You need to install PHP.
 
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
+```
+$ php -S 0.0.0.0:8080 -t public/index.php
+```
 
-That's it! Now go build something cool.
+And you can access to `localhost:8080`.
+
+### Install
+
+```
+$ git clone hoge
+
+$ composer install
+```
+
+### Licence
+
+All free.
+
+## Author
+
+[@sota1235](https://github.com/sota1235)
