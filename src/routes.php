@@ -40,7 +40,7 @@ $app->get('/level/3', function ($request, $response, $args) {
     $params = $request->getQueryParams();
 
     if (isset($params['name'])) {
-        $args['getName'] = preg_replace('/script/', '', $params['name']);
+        $args['getName'] = $params['name'];
     }
 
     $unsafeResponse = $response->withHeader('x-xss-protection', '0');

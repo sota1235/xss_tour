@@ -34,7 +34,7 @@
             <b>Notice: The application escape '<', '>' character.</b>
         </p>
 
-        <h2>Hello, <?php echo isset($getName) ? $getName : 'no name'; ?></h2>
+        <h2>Hello, <?php echo isset($getName) ? e($getName) : 'no name'; ?></h2>
 
         <a href="/">Back to home</a>
     </body>
