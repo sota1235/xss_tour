@@ -17,9 +17,7 @@ $app->get('/level/1', function ($request, $response, $args) {
         $args['getName'] = $params['name'];
     }
 
-    $unsafeResponse = $response->withHeader('x-xss-protection', '0');
-
-    return $this->renderer->render($unsafeResponse, 'level1.phtml', $args);
+    return $this->renderer->render(getUnsafeResponse($response), 'level1.phtml', $args);
 });
 
 // Level2 'script'文字列をサニタイズ
@@ -30,9 +28,7 @@ $app->get('/level/2', function ($request, $response, $args) {
         $args['getName'] = preg_replace('/script/', '', $params['name']);
     }
 
-    $unsafeResponse = $response->withHeader('x-xss-protection', '0');
-
-    return $this->renderer->render($unsafeResponse, 'level2.phtml', $args);
+    return $this->renderer->render(getUnsafeResponse($response), 'level2.phtml', $args);
 });
 
 // Level3 '>', '<'文字列をエスケープ
@@ -43,7 +39,5 @@ $app->get('/level/3', function ($request, $response, $args) {
         $args['getName'] = $params['name'];
     }
 
-    $unsafeResponse = $response->withHeader('x-xss-protection', '0');
-
-    return $this->renderer->render($unsafeResponse, 'level3.phtml', $args);
+    return $this->renderer->render(getUnsafeResponse($response), 'level3.phtml', $args);
 });
