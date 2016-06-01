@@ -27,6 +27,12 @@
     <body>
         <h1>Level1</h1>
 
+        <p>
+            This level contains the standard XSS(Reflection XSS).<br />
+            You can add 'name' GET query string.<br />
+            Try to access <a href="?name=YourName">/level/1/name=YourName</a>
+        </p>
+
         <h2>Hello, <?php echo isset($getName) ? $getName : 'no name'; ?></h2>
 
         <a href="/">Back to home</a>
