@@ -14,7 +14,7 @@ Learning some pattern of cross site scripting.
 You need to install PHP.
 
 ```
-$ php -S 0.0.0.0:8080 -t public/index.php
+$ cd public && php -S 0.0.0.0:8080
 ```
 
 And you can access to `localhost:8080`.
