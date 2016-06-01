@@ -12,6 +12,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
+// Helpers
+require __DIR__ . '/../src/helpers.php';
+
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
