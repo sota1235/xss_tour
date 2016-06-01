@@ -30,11 +30,11 @@
         <p>
             This level contains the standard XSS(Reflection XSS).<br />
             You can add 'name' GET query string and you can make your original button calling your name!!.<br />
-            Try to access <a href="?name=YourName">/level/2/name=YourName</a><br />
+            Try to access <a href="?name=YourName">/level/3/name=YourName</a><br />
             <b>Notice: The application escape '<', '>' character.</b>
         </p>
 
-        <h2>Hello, <?php echo isset($getName) ? e($getName) : 'no name'; ?></h2>
+        <h2>Hello, <?php echo e($getName) ?></h2>
 
         <a href="/">Back to home</a>
     </body>
