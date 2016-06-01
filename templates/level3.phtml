@@ -24,6 +24,13 @@
             }
         </style>
     </head>
+
+    <script>
+        var callName = function (name) {
+            alert('Hello, ' + name + '!!');
+        };
+    </script>
+
     <body>
         <h1>Level3</h1>
 
@@ -31,10 +38,14 @@
             This level contains the standard XSS(Reflection XSS).<br />
             You can add 'name' GET query string and you can make your original button calling your name!!.<br />
             Try to access <a href="?name=YourName">/level/3/name=YourName</a><br />
-            <b>Notice: The application escape '<', '>' character.</b>
+            <b>Notice: The application escape '<', '>', single quotes and double quotes character.</b>
         </p>
 
-        <h2>Hello, <?php echo e($getName) ?></h2>
+        <h2>
+            Hello, <?php echo e($getName) ?>. <br/>
+            I will call your name. Let's click button!
+        </h2>
+        <button onclick="callName('<?php echo e($getName); ?>');">Call me please</button><br />
 
         <a href="/">Back to home</a>
     </body>
