@@ -37,3 +37,8 @@ $app->get('/level/3', function ($request, $response, $args) {
 $app->get('/level/4', function ($request, $response, $args) {
     return $this->renderer->render(getUnsafeResponse($response), 'level4.phtml', $args);
 });
+
+// Level5 何にしようかな
+$app->get('/level/5', function ($request, $response, $args) {
+    return $this->renderer->render(getUnsafeResponse($response), 'level5.phtml', $args);
+});
