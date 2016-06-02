@@ -10,11 +10,16 @@
 
             <h3>Mission: exec "alert('xss')"</h3>
 
-            <?php include('../templates/_success.php'); ?>
-
             <p>
                 This level contains the Reflection XSS<br />
+                You can add <mark>name</mark> GET query string.<br />
+                Try to access <a href="?name=YourName">/level/5/name=YourName</a><br />
+                <b>Notice: The application replace 'script' and 'alert' character.</b>
             </p>
+
+            <?php include('../templates/_success.php'); ?>
+
+            <h2>Hello, <?php echo $getName; ?></h2>
 
             <a href="/">Back to home</a>
         </div>

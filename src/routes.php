@@ -38,7 +38,11 @@ $app->get('/level/4', function ($request, $response, $args) {
     return $this->renderer->render(getUnsafeResponse($response), 'level4.phtml', $args);
 });
 
-// Level5 何にしようかな
+// Level5 'script', 'alert'をサニタイズ
 $app->get('/level/5', function ($request, $response, $args) {
+    $params          = $request->getQueryParams();
+    $args['getName'] = preg_replace('/script/', '', array_get($params, 'name', 'no name'));
+    $args['getName'] = preg_replace('/alert/', '', $args['getName']);
+
     return $this->renderer->render(getUnsafeResponse($response), 'level5.phtml', $args);
 });
