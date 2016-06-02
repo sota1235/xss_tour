@@ -22,7 +22,9 @@
                 url = decodeURIComponent(url);
                 if (!url.match( /^https?:\/\// )) return "/";
             } catch (e) {
-                document.getElementById('error-space').innerText = 'invalid url';
+                console.log(e);
+                document.getElementById('error-space').innerHTML =
+                    '<p class="bg-danger" style="padding:15px; margin-top: 15px">invalid url</p>';
             }
 
             return url;
@@ -34,8 +36,6 @@
         }
 
         function updateTargetUrl() {
-            console.log(escape(location.hash.substring(1)));
-
             document.getElementById('target-url').innerHTML = escape(location.hash.substring(1));
         }
 
@@ -53,14 +53,14 @@
                 This level contains the DOM Based XSS<br />
                 You can specify redirect URL by adding URL hash.<br />
                 Then redirect button avalaible.<br />
-                For example, you access '/level/4#http://sota1235.com', you can redirect to 'http://sota1235.com' when clicking button.<br />
-                But the url must be HTTP or HTTPS scheme.
+                For example, you access <mark>/level/4#http://sota1235.com</mark>, you can redirect to <mark>http://sota1235.com</mark> when clicking button.<br />
+                <b>But the url must be HTTP or HTTPS scheme.</b>
             </p>
 
             <h2>
                 You will redirect to <span id="target-url"></span> by clicking button.
             </h2>
-            <button onclick="redirect()">Redirect</button><br />
+            <button type="button" class="btn btn-info" onclick="redirect()">Redirect</button><br />
             <div id="error-space"></div><br />
 
             <a href="/">Back to home</a>
