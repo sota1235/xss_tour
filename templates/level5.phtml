@@ -19,7 +19,15 @@
 
             <?php include('../templates/_success.php'); ?>
 
-            <h2>Hello, <?php echo $getName; ?></h2>
+            <h2>What you name?</h2>
+            <form method="POST" action="/level/5">
+                <input type="text" name="name" value="<?php echo $getName ?>">
+                <input type="submit" value="Submit">
+            </form>
+
+            <?php if (isset($isPost)) {?>
+                <h2>Hello, <?php echo $getName; ?></h2>
+            <?php } ?>
 
             <a href="/">Back to home</a>
         </div>

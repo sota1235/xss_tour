@@ -40,9 +40,16 @@ $app->get('/level/4', function ($request, $response, $args) {
 
 // Level5 'script', 'alert'をサニタイズ
 $app->get('/level/5', function ($request, $response, $args) {
-    $params          = $request->getQueryParams();
-    $args['getName'] = preg_replace('/script/', '', array_get($params, 'name', 'no name'));
+    $args['getName'] = '';
+
+    return $this->renderer->render(getUnsafeResponse($response), 'level5.phtml', $args);
+});
+
+$app->post('/level/5', function ($request, $response, $args) {
+    $params          = $request->getParsedBody();
+    $args['getName'] = preg_replace('/script/', '', array_get($params, 'name', ''));
     $args['getName'] = preg_replace('/alert/', '', $args['getName']);
+    $args['isPost'] = true;
 
     return $this->renderer->render(getUnsafeResponse($response), 'level5.phtml', $args);
 });
