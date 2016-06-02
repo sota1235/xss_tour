@@ -32,3 +32,8 @@ $app->get('/level/3', function ($request, $response, $args) {
 
     return $this->renderer->render(getUnsafeResponse($response), 'level3.phtml', $args);
 });
+
+// Level4 DOM Based XSS
+$app->get('/level/4', function ($request, $response, $args) {
+    return $this->renderer->render(getUnsafeResponse($response), 'level4.phtml', $args);
+});

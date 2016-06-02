@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>XSS Tours - Level 4</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 100px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+        </style>
+    </head>
+
+    <script>
+        function getRedirectPageUrl(){
+            var url = location.hash.substring(1);
+
+            try {
+                if (url.length === 0) return "/";
+                url = decodeURIComponent(url);
+                if (!url.match( /^https?:\/\// )) return "/";
+            } catch (e) {
+                document.getElementById('error-space').innerText = 'invalid url';
+            }
+
+            return url;
+        }
+
+        function redirect() {
+            var url = getRedirectPageUrl();
+            location.href = url;
+        }
+
+        function updateTargetUrl() {
+            document.getElementById('target-url').innerText = location.hash.substring(1);
+        }
+
+        window.onload = updateTargetUrl;
+
+    </script>
+
+    <body>
+        <h1>Level4</h1>
+
+        <h3>Mission: exec "alert('xss')"</h3>
+
+        <p>
+            This level contains the DOM Based XSS<br />
+            You can specify redirect URL by adding URL hash.<br />
+            Then redirect button avalaible.<br />
+            For example, you access '/level/4#http://sota1235.com', you can redirect to 'http://sota1235.com' when clicking button.<br />
+            But the url must be HTTP or HTTPS scheme.
+        </p>
+
+        <h2>
+            You will redirect to <span id="target-url"></span> by clicking button.
+        </h2>
+        <button onclick="redirect()">Redirect</button><br />
+        <div id="error-space"></div><br />
+
+        <a href="/">Back to home</a>
+    </body>
+</html>
