@@ -44,24 +44,26 @@
     </script>
 
     <body>
-        <h1>Level4</h1>
+        <div class="container">
+            <h1>Level4</h1>
 
-        <h3>Mission: exec "alert('xss')"</h3>
+            <h3>Mission: exec "alert('xss')"</h3>
 
-        <p>
-            This level contains the DOM Based XSS<br />
-            You can specify redirect URL by adding URL hash.<br />
-            Then redirect button avalaible.<br />
-            For example, you access '/level/4#http://sota1235.com', you can redirect to 'http://sota1235.com' when clicking button.<br />
-            But the url must be HTTP or HTTPS scheme.
-        </p>
+            <p>
+                This level contains the DOM Based XSS<br />
+                You can specify redirect URL by adding URL hash.<br />
+                Then redirect button avalaible.<br />
+                For example, you access '/level/4#http://sota1235.com', you can redirect to 'http://sota1235.com' when clicking button.<br />
+                But the url must be HTTP or HTTPS scheme.
+            </p>
 
-        <h2>
-            You will redirect to <span id="target-url"></span> by clicking button.
-        </h2>
-        <button onclick="redirect()">Redirect</button><br />
-        <div id="error-space"></div><br />
+            <h2>
+                You will redirect to <span id="target-url"></span> by clicking button.
+            </h2>
+            <button onclick="redirect()">Redirect</button><br />
+            <div id="error-space"></div><br />
 
-        <a href="/">Back to home</a>
+            <a href="/">Back to home</a>
+        </div>
     </body>
 </html>

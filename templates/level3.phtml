@@ -11,23 +11,25 @@
     </script>
 
     <body>
-        <h1>Level3</h1>
+        <div class="container">
+            <h1>Level3</h1>
 
-        <h3>Mission: exec "alert('xss')"</h3>
+            <h3>Mission: exec "alert('xss')"</h3>
 
-        <p>
-            This level contains the standard XSS(Reflection XSS).<br />
-            You can add 'name' GET query string and you can make your original button calling your name!!.<br />
-            Try to access <a href="?name=YourName">/level/3/name=YourName</a><br />
-            <b>Notice: The application escape '<', '>', single quotes and double quotes character.</b>
-        </p>
+            <p>
+                This level contains the standard XSS(Reflection XSS).<br />
+                You can add 'name' GET query string and you can make your original button calling your name!!.<br />
+                Try to access <a href="?name=YourName">/level/3/name=YourName</a><br />
+                <b>Notice: The application escape '<', '>', single quotes and double quotes character.</b>
+            </p>
 
-        <h2>
-            Hello, <?php echo e($getName) ?>. <br/>
-            I will call your name. Let's click button!
-        </h2>
-        <button onclick="callName('<?php echo e($getName); ?>');">Call me please</button><br />
+            <h2>
+                Hello, <?php echo e($getName) ?>. <br/>
+                I will call your name. Let's click button!
+            </h2>
+            <button onclick="callName('<?php echo e($getName); ?>');">Call me please</button><br />
 
-        <a href="/">Back to home</a>
+            <a href="/">Back to home</a>
+        </div>
     </body>
 </html>

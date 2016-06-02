@@ -4,19 +4,21 @@
         <?php include('../templates/_header.php'); ?>
     </head>
     <body>
-        <h1>Level2</h1>
+        <div class="container">
+            <h1>Level2</h1>
 
-        <h3>Mission: exec "alert('xss')"</h3>
+            <h3>Mission: exec "alert('xss')"</h3>
 
-        <p>
-            This level contains the standard XSS(Reflection XSS).<br />
-            You can add 'name' GET query string.<br />
-            Try to access <a href="?name=YourName">/level/2/name=YourName</a><br />
-            <b>Notice: The application replace 'script' character.</b>
-        </p>
+            <p>
+                This level contains the standard XSS(Reflection XSS).<br />
+                You can add 'name' GET query string.<br />
+                Try to access <a href="?name=YourName">/level/2/name=YourName</a><br />
+                <b>Notice: The application replace 'script' character.</b>
+            </p>
 
-        <h2>Hello, <?php echo $getName; ?></h2>
+            <h2>Hello, <?php echo $getName; ?></h2>
 
-        <a href="/">Back to home</a>
+            <a href="/">Back to home</a>
+        </div>
     </body>
 </html>
